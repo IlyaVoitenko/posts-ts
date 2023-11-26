@@ -1,20 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {} from "../../thunk";
+import { getPostsListThunk } from "../thunk";
+import { PostArray } from "../../interface";
 
-const initialState = {
-  postList: [],
+const initialState: PostArray = {
+  postList: null,
 };
 
 const postsSlice = createSlice({
   name: "posts",
   initialState,
   extraReducers: (builder) => {
-    // builder.addCase(.fulfilled, (state, action) => {
-    //   state.postList = [...action.payload];
-    // });
-    // builder.addCase(.rejected, (state) => {
-    //   state.postList = [];
-    // });
+    builder.addCase(getPostsListThunk.fulfilled, (state, action) => {
+      state.postList = [...action.payload];
+    });
+    builder.addCase(getPostsListThunk.rejected, (state) => {
+      state.postList = [];
+    });
   },
   reducers: {},
 });
