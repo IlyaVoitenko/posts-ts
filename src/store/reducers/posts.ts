@@ -4,6 +4,7 @@ import { PostArray } from "../../interface";
 
 const initialState: PostArray = {
   postList: null,
+  newPost: null,
 };
 
 const postsSlice = createSlice({
@@ -12,9 +13,6 @@ const postsSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getPostsListThunk.fulfilled, (state, action) => {
       state.postList = [...action.payload];
-    });
-    builder.addCase(getPostsListThunk.rejected, (state) => {
-      state.postList = [];
     });
   },
   reducers: {},

@@ -1,12 +1,12 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ListPosts from "./components/ListPosts";
+import Common from "./components/Common";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<ListPosts />} />
+        <Route index element={<Common />} />
       </Routes>
     </BrowserRouter>
   );
